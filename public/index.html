@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像特徴量分析アプリ - DNN版</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Firebase関連のスクリプト -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <!-- TensorFlow.jsを読み込む -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0"></script>
+  <!-- 先にscoring.jsを読み込む -->
+  <script src="js/scoring.js"></script>
+  <!-- モデル関連の処理スクリプト -->
+  <script src="js/model.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>score</h1>
+
+    <!-- ローディングインジケーター -->
+    <div id="loadingIndicator" class="loading-indicator">
+      <div class="spinner"></div>
+      <span>読み込み中...</span>
+    </div>
+
+    <div class="upload-section">
+      <label for="imageInput" class="upload-label">upload</label>
+      <input type="file" id="imageInput" accept="image/*" hidden>
+    </div>
+
+    <div class="result-section" id="resultSection" style="display: none;">
+      <h2>result</h2>
+
+      <!-- 類似画像情報表示エリア -->
+      <div class="similar-image-info">
+        <h3>similar image</h3>
+        <div id="similarImageInfo">-</div>
+      </div>
+
+      <!-- 埋め込みベクトル可視化用のキャンバス -->
+      <div class="vector-visualization">
+        <h3>map</h3>
+        <canvas id="vectorCanvas" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 画像処理用の隠しImage要素 -->
+  <img id="hiddenImage" style="display: none;" alt="">
+
+  <!-- Firebase初期化スクリプト -->
+  <script>
+    // Firebaseの初期化
+    const firebaseConfig = {
+      apiKey: "AIzaSyDi89ZpIMZxK45IdswTs-jwx2yq6e93ckw",
+      authDomain: "test-book-441b9.firebaseapp.com",
+      projectId: "test-book-441b9",
+      storageBucket: "test-book-441b9.firebasestorage.app",
+      messagingSenderId: "569218287284",
+      appId: "1:569218287284:web:f1f73a29571db0f066b9e1"
+    };
+
+    // Firebaseの初期化
+    firebase.initializeApp(firebaseConfig);
+
+    // Firestoreのインスタンスを取得
+    const db = firebase.firestore();
+  </script>
+
+  <!-- home.jsは必ずscoring.jsとmodel.jsの後に読み込む -->
+  <script src="js/home.js"></script>
+</body>
+
+</html>

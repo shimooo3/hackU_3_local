@@ -112,7 +112,7 @@ function image2vec(image, dimensions = 16) {
                 }
 
                 if (count > 0) {
-                    const featureValue = (r + g + b) / (3 * count)
+                    const featureValue = (r + g + b) / (3 * count) / 255
                     vector.push(featureValue);
                 }
             }

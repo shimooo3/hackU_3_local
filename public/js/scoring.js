@@ -12,24 +12,24 @@ function calculateCoordinatesForEmotion(emotion, mean, variance) {
     // 感情に応じたオフセットを設定
     switch (emotion) {
         case "喜":
-            // 喜び: 第一象限（平均大、分散大）に移動
-            xOffset = 0.2;  // 右へ
-            yOffset = 0.2;  // 上へ
+            // 喜び: 平均大、分散大に移動
+            xOffset = 0.2;
+            yOffset = 0.2;
             break;
         case "怒":
-            // 怒り: 第四象限（平均大、分散小）に移動
-            xOffset = 0.2;  // 右へ
-            yOffset = -0.2; // 下へ
+            // 怒り: 平均小、分散大に移動
+            xOffset = -0.2;
+            yOffset = 0.2;
             break;
         case "哀":
-            // 哀しみ: 第三象限（平均小、分散小）に移動
-            xOffset = -0.2; // 左へ
-            yOffset = -0.2; // 下へ
+            // 哀しみ: 平均小、分散小に移動
+            xOffset = -0.2;
+            yOffset = -0.2;
             break;
         case "楽":
-            // 楽しさ: 第二象限（平均小、分散大）に移動
-            xOffset = -0.2; // 左へ
-            yOffset = 0.2;  // 上へ
+            // 楽しさ: 平均大、分散小に移動
+            xOffset = 0.2;
+            yOffset = -0.2;
             break;
         default:
             // 不明な感情は原点に近い位置
@@ -84,15 +84,12 @@ function calculateStats(vector) {
     const MIN_MEAN = 0;
     const MAX_MEAN = 1;
     const MIN_VARIANCE = 0;
-    // 分散の最大値を0.25から0.1に変更
-    // より実用的な値として0.1を設定（必要に応じて調整可能）
     const MAX_VARIANCE = 0.1;
 
     const normalizedMean = normalizeValue(mean, MIN_MEAN, MAX_MEAN);
     const normalizedVariance = normalizeValue(variance, MIN_VARIANCE, MAX_VARIANCE);
 
     return {
-        //　正規化前後の平均，分散を返す
         mean,
         variance,
         normalizedMean,
@@ -189,8 +186,8 @@ function image2vec(image, emotion = "楽") {
             normalizedMean: stats.normalizedMean,
             normalizedVariance: stats.normalizedVariance,
             // 座標値を追加
-            x_mean: coordinates.x,
-            y_variance: coordinates.y
+            x: coordinates.x,
+            y: coordinates.y
         };
 
         console.log('感情:', emotion);

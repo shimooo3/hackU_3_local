@@ -272,20 +272,18 @@ async function handleImageSelection(event) {
             console.log('隠し画像の読み込みが完了しました');
 
             try {
-                // 感情は仮に"楽"に設定（実際には選択UIなどから取得する必要があります）
-                const emotion = "楽"; // ここを実際のUIからの入力に置き換えることができます
+                const emotion = "楽";
 
-                // 画像と感情から埋め込みベクトルを生成
                 const embeddingResult = await image2vec(hiddenImage, emotion);
                 console.log('画像と感情から埋め込みベクトルを生成しました:', embeddingResult);
 
-                // 感情オフセットを加えた値をログ出力
                 console.log('感情オフセット適用後の座標:', {
                     emotion: emotion,
                     normalizedMean: embeddingResult.stats.normalizedMean,
                     normalizedVariance: embeddingResult.stats.normalizedVariance,
-                    x_mean: embeddingResult.stats.x,
-                    y_variance: embeddingResult.stats.y
+                    // グラフ表示，firestore格納用
+                    x: embeddingResult.stats.x,
+                    y: embeddingResult.stats.y
                 });
 
                 // 画像データと埋め込みベクトルを履歴に保存
@@ -295,12 +293,11 @@ async function handleImageSelection(event) {
                     timestamp: new Date().toISOString()
                 });
 
-                // Firestoreで最近傍画像を検索 - 修正箇所: stats オブジェクトから mean と variance を分解して渡す
-                const searchResult = await findNearestImageInFirestore(embeddingResult.stats.x_mean, embeddingResult.stats.y_variance, 2);
+                // firestore検索
+                const searchResult = await findNearestImageInFirestore(embeddingResult.stats.x, embeddingResult.stats.y, 2);
                 const nearestImage = searchResult.nearest;
                 const sortedResults = searchResult.sortedResults;
 
-                // ソート結果をコンソールに出力
                 console.log('類似度順のソート結果:', sortedResults);
 
                 // 結果表示関数を呼び出し

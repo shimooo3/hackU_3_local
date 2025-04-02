@@ -1,0 +1,214 @@
+{
+    "images": [
+        {
+            "title": "藍色の蟇",
+            "path": "angry_1.jpg",
+            "x": 0.0096,
+            "y": 0.391,
+            "emotion": "怒"
+        },
+        {
+            "title": "黄色い晩",
+            "path": "angry_2.JPG",
+            "x": 0.167,
+            "y": 0.867,
+            "emotion": "怒"
+        },
+        {
+            "title": "麦搗",
+            "path": "angry_3.jpg",
+            "x": 0.239,
+            "y": 0.462,
+            "emotion": "怒"
+        },
+        {
+            "title": "生活の探求",
+            "path": "angry_4.jpg",
+            "x": 0.322,
+            "y": 0.375,
+            "emotion": "怒"
+        },
+        {
+            "title": "小さな王国",
+            "path": "angry_5.jpg",
+            "x": 0.266,
+            "y": 0.704,
+            "emotion": "怒"
+        },
+        {
+            "title": "問に答えて",
+            "path": "angry_6.jpg",
+            "x": 0.115,
+            "y": 0.911,
+            "emotion": "怒"
+        },
+        {
+            "title": "雷神",
+            "path": "angry_7.jpg",
+            "x": 0.378,
+            "y": 0.999,
+            "emotion": "怒"
+        },
+        {
+            "title": "ライギット・パズル",
+            "path": "enjoy_1.jpg",
+            "x": 0.630,
+            "y": 0.106,
+            "emotion": "楽"
+        },
+        {
+            "title": "兄ちゃん",
+            "path": "enjoy_2.jpg",
+            "x": 0.617,
+            "y": 0.051,
+            "emotion": "楽"
+        },
+        {
+            "title": "八宝飯",
+            "path": "enjoy_3.jpg",
+            "x": 0.620,
+            "y": 0.001,
+            "emotion": "楽"
+        },
+        {
+            "title": "ウィネッカの冬",
+            "path": "enjoy_4.jpg",
+            "x": 0.747,
+            "y": 0.563,
+            "emotion": "楽"
+        },
+        {
+            "title": "味覚馬鹿",
+            "path": "enjoy_5.jpg",
+            "x": 0.685,
+            "y": 0.522,
+            "emotion": "楽"
+        },
+        {
+            "title": "猫と村正",
+            "path": "enjoy_6.jpg",
+            "x": 0.801,
+            "y": 0.320,
+            "emotion": "楽"
+        },
+        {
+            "title": "風宴",
+            "path": "enjoy_7.jpg",
+            "x": 0.763,
+            "y": 0.501,
+            "emotion": "楽"
+        },
+        {
+            "title": "最近悦ばれているものから",
+            "path": "happy_1.JPG",
+            "x": 0.762,
+            "y": 0.894,
+            "emotion": "喜"
+        },
+        {
+            "title": "映画の恋愛",
+            "path": "happy_2.JPG",
+            "x": 0.595,
+            "y": 0.999,
+            "emotion": "喜"
+        },
+        {
+            "title": "名園の落水",
+            "path": "happy_3.jpg",
+            "x": 0.530,
+            "y": 0.464,
+            "emotion": "喜"
+        },
+        {
+            "title": "酔狂録",
+            "path": "happy_4.jpg",
+            "x": 0.714,
+            "y": 0.896,
+            "emotion": "喜"
+        },
+        {
+            "title": "令嬢エミーラの日記",
+            "path": "happy_5.JPG",
+            "x": 0.740,
+            "y": 0.474,
+            "emotion": "喜"
+        },
+        {
+            "title": "和解",
+            "path": "happy_6.jpg",
+            "x": 0.592,
+            "y": 0.715,
+            "emotion": "喜"
+        },
+        {
+            "title": "流転",
+            "path": "happy_7.jpg",
+            "x": 0.726,
+            "y": 0.726,
+            "emotion": "喜"
+        },
+        {
+            "title": "いいなずけ",
+            "path": "sad_1.jpg",
+            "x": 0.001,
+            "y": 0.165,
+            "emotion": "哀"
+        },
+        {
+            "title": "芸術は生動す",
+            "path": "sad_2.JPG",
+            "x": 0.155,
+            "y": 0.223,
+            "emotion": "哀"
+        },
+        {
+            "title": "抜髪",
+            "path": "sad_3.JPG",
+            "x": 0.068,
+            "y": 0.259,
+            "emotion": "哀"
+        },
+        {
+            "title": "追憶",
+            "path": "sad_4.jpg",
+            "x": 0.098,
+            "y": 0.159,
+            "emotion": "哀"
+        },
+        {
+            "title": "ひかげの花",
+            "path": "sad_5.jpg",
+            "x": 0.134,
+            "y": 0.651,
+            "emotion": "哀"
+        },
+        {
+            "title": "立秋",
+            "path": "sad_6.jpg",
+            "x": 0.088,
+            "y": 0.174,
+            "emotion": "哀"
+        },
+        {
+            "title": "小祝の一家",
+            "path": "sad_7.jpg",
+            "x": 0.217,
+            "y": 0.033,
+            "emotion": "哀"
+        },
+        {
+            "title": "夕の賦",
+            "path": "sad_8.JPG",
+            "x": 0.527,
+            "y": 0.195,
+            "emotion": "哀"
+        },
+        {
+            "title": "舞姫",
+            "path": "sad_9.JPG",
+            "x": 0.193,
+            "y": 0.007,
+            "emotion": "哀"
+        }
+    ]
+}

@@ -14,16 +14,16 @@ function calculateCoordinatesForEmotion(emotion, mean, variance) {
         case "喜":
             // 喜び: 平均大、分散大に移動
             xOffset = 0.2;
-            yOffset = 0.2;
+            yOffset = 0.3;
             break;
         case "怒":
             // 怒り: 平均小、分散大に移動
             xOffset = -0.2;
-            yOffset = 0.2;
+            yOffset = 0.3;
             break;
         case "哀":
             // 哀しみ: 平均小、分散小に移動
-            xOffset = -0.2;
+            xOffset = -0.3;
             yOffset = -0.2;
             break;
         case "楽":
@@ -84,7 +84,7 @@ function calculateStats(vector) {
     const MIN_MEAN = 0;
     const MAX_MEAN = 1;
     const MIN_VARIANCE = 0;
-    const MAX_VARIANCE = 0.1;
+    const MAX_VARIANCE = 0.05;
 
     const normalizedMean = normalizeValue(mean, MIN_MEAN, MAX_MEAN);
     const normalizedVariance = normalizeValue(variance, MIN_VARIANCE, MAX_VARIANCE);
@@ -215,71 +215,6 @@ function image2vec(image, emotion = "楽") {
                 normalizedVariance: 0.5,
                 x: 0.5,
                 y: 0.5
-            }
-        };
-    }
-}
-
-/**
- * DNNモデルを使用して画像を特徴ベクトルに変換する関数
- * need model.js
- * @param {HTMLImageElement} image 画像要素
- * @param {number} dimensions 出力次元数 (デフォルト: 16)
- * @return {Object} 特徴ベクトルとメタデータを含むオブジェクト
- */
-async function image2vecDNN(image, dimensions = 16) {
-    console.log('called image2vecDNN func');
-
-    if (!image || !image.naturalWidth) {
-        console.error('invalid image: ', image);
-        return {
-            vector: Array(dimensions).fill(0),
-            metadata: { error: 'Invalid image' },
-            stats: {
-                mean: 0,
-                variance: 0,
-                normalizedMean: 0.5,
-                normalizedVariance: 0.5
-            }
-        };
-    }
-
-    try {
-        const featuresData = await extractFeatures(image);
-        const vectorLength = featuresData.length;
-        const step = Math.floor(vectorLength / dimensions);
-
-        const finalVector = [];
-        for (let i = 0; i < dimensions; i++) {
-            const index = Math.min(i * step, vectorLength - 1);
-            finalVector.push(featuresData[index]);
-        }
-
-        // mean, var
-        const stats = calculateStats(finalVector);
-        console.log('DNN: mean=', stats.mean, 'var=', stats.variance);
-        console.log('DNN: norm mean=', stats.normalizedMean, 'norm var=', stats.normalizedVariance);
-
-        return {
-            vector: finalVector,
-            metadata: {
-                imageSize: { width: image.naturalWidth, height: image.naturalHeight },
-                originalLength: vectorLength,
-                modelType: 'MobileNet',
-                timestamp: new Date().toISOString()
-            },
-            stats: stats
-        };
-    } catch (error) {
-        console.error('DNN error:', error);
-        return {
-            vector: Array(dimensions).fill(0),
-            metadata: { error: error.message },
-            stats: {
-                mean: 0,
-                variance: 0,
-                normalizedMean: 0.5,
-                normalizedVariance: 0.5
             }
         };
     }

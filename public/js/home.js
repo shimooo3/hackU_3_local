@@ -272,7 +272,7 @@ async function handleImageSelection(event) {
             console.log('隠し画像の読み込みが完了しました');
 
             try {
-                const emotion = "楽";
+                const emotion = "哀";
 
                 const embeddingResult = await image2vec(hiddenImage, emotion);
                 console.log('画像と感情から埋め込みベクトルを生成しました:', embeddingResult);
@@ -478,8 +478,8 @@ function visualizeImageWithFirestoreData(embeddingResult, nearestImage = null) {
         const stats = embeddingResult.stats;
 
         // 正規化された平均と分散を使用
-        const normalizedMean = stats.normalizedMean;
-        const normalizedVariance = stats.normalizedVariance;
+        const normalizedMean = stats.x;
+        const normalizedVariance = stats.y;
 
         // キャンバス座標に変換
         const imageX = padding + (width - 2 * padding) * normalizedMean;
